@@ -10,6 +10,7 @@ namespace Testing.Controllers
             this.repo = repo;
         }
 
+        // GET: /<constroller>/
         public IActionResult Index()
         {
             var products = repo.GetAllProducts();
