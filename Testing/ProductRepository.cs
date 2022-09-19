@@ -14,12 +14,18 @@ namespace Testing
         }
         public IEnumerable<Product> GetAllProducts()
         {
-            return _conn.Query<Product>("SELECT * FROM PRODUCTS");
+            return _conn.Query<Product>("SELECT * FROM PRODUCT");
         }
 
         public Product GetProduct(int id)
         {
-            return _conn.QuerySingle<Product>("SELECT * FROM PRODUCTS WHERE PRODUCTID = @id", new { id = id });
+            return _conn.QuerySingle<Product>("SELECT * FROM PRODUCT WHERE PRODUCTID = @id",
+                new { id = id });
+        }
+        public void UpdateProduct(Product product)
+        {
+            _conn.Execute("UPDATE product SET Name = @name, Price = @price WHERE ProductID = @id",
+                new { name = product.Name, price = product.Price, id = product.ProductID });
         }
     }
 }
