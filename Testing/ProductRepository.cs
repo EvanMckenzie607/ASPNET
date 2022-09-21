@@ -46,5 +46,14 @@ namespace Testing
 
         public void UpdateProduct(Product product) => _conn.Execute("UPDATE products SET Name = @name, Price = @price WHERE ProductID = @id",
                 new { name = product.Name, price = product.Price, id = product.ProductID });
+        public void DeleteProduct(Product product)
+        {
+            _conn.Execute("DELETE FROM REVIEWS WHERE ProductID =@id;",
+                new { id = product.ProductID });
+            _conn.Execute("DELETE FROM Sales WHERE ProductID =@id;",
+                new { id = product.ProductID });
+            _conn.Execute("DELETE FROM Sales WHERE ProductID =@id;",
+                new { id = product.ProductID });
+        }
     }
 }
