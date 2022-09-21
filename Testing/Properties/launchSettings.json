@@ -1,12 +1,13 @@
-﻿{
-  "iisSettings": {
-    "windowsAuthentication": false, 
-    "anonymousAuthentication": true, 
-    "iisExpress": {
-      "applicationUrl": "http://localhost:63431",
-      "sslPort": 44387
+{
+  "ConnectionStrings": {
+    "bestbuy": "Server=localhost;Database=bestbuy;uid=root;Pwd=password;Port=3306;"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Warning"
     }
   },
+  "AllowedHosts": "*",
   "profiles": {
     "IIS Express": {
       "commandName": "IISExpress",
